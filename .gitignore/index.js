@@ -71,7 +71,7 @@ bot.on('message', message => {
     }
 
     if (message.content === prefix + "stats") {
-        var userCreateDate = message.author.createdAt.toString().split(" ");
+        var userCreateDate = message.author.createdAt.toString().split(" ")
         var stats_embed = new Discord.RichEmbed()
             .setColor("RANDOM")
             .setTitle(`Statistiques de ${message.author.username}`)
@@ -80,7 +80,7 @@ bot.on('message', message => {
             .addField(`**Date de creation :**`, userCreateDate[1] + ' ' + userCreateDate[2] + ' ' + userCreateDate[3])
             .setThumbnail(message.author.avatarURL)
         message.reply("regarde tes message privée tu vien de recevoir tes statistiques")
-        message.author.send({embed: stats_embed})
+        message.author.sendEmbed(stats_embed)
     }
 
     if (message.content === prefix + "si"){
@@ -98,7 +98,7 @@ bot.on('message', message => {
         .addField("**Humains :**", message.guild.memberCount - message.guild.members.filter(m => m.user.bot).size)
         .addField("**Bots :**", message.guild.members.filter(m => m.user.bot).size)
         .addField("**Channels :**", `${message.guild.channels.filter(channel => channel.type === 'voice').size} salon(s) vocal(aux) / ${message.guild.channels.filter(channel => channel.type === 'text').size} salon(s) text(s)`, true)
-        .addField("Online", online.size, true)
+        .addField("Online", online.size)
         .addField("**Rôles**", message.guild.roles.size)
         .setThumbnail(message.guild.iconURL)
         .setColor("RANDOM")
@@ -121,7 +121,7 @@ bot.on('message', message => {
       .addField("**Humains :**", message.guild.memberCount - message.guild.members.filter(m => m.user.bot).size)
       .addField("**Bots :**", message.guild.members.filter(m => m.user.bot).size)
       .addField("**Channels :**", `${message.guild.channels.filter(channel => channel.type === 'voice').size} salon(s) vocal(aux) / ${message.guild.channels.filter(channel => channel.type === 'text').size} text`, true)
-      .addField("Online", online.size, true)
+      .addField("Online", online.size)
       .addField("**Rôles**", message.guild.roles.size)
       .setThumbnail(message.guild.iconURL)
       .setColor("RANDOM")
