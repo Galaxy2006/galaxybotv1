@@ -61,7 +61,7 @@ bot.on('message', message => {
             .setDescription(":question: Faites `g!help` pour avoir la page d'aide en MP ! :question:")
             .addField(":rotating_light:  **Administration**", "\n`g!kick (Avoir role : PermMod)` | `g!ban (Avoir role : PermMod)`")
             .addField(":pushpin: **Utile**", "\n`g!stats` | `g!serverinfo (ou si)` | `g!invite` | `g!vcs (text)` | `g!report (personne) (raison)`")
-            .addField(":balloon: **Fun**", "\n`g!roll` | `g!8ball` | `g!avatar` | `g!say` | `chat`")
+            .addField(":balloon: **Fun**", "\n`g!roll` | `g!8ball` | `g!avatar` | `g!say` | `g!chat`")
             .addField("🤝 **Support** 🤝", "\n`g!discord`")
             .setFooter("Voila pour les commandes du bot !")
         message.channel.sendEmbed(hhelp_embed);
