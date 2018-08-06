@@ -363,14 +363,14 @@ bot.on('message', message => {
             return message.channel.sendMessage("Tu n'as pas la permission de faire cette commande.").catch(console.error);
         }
         if(message.mentions.users.size === 0) {
-            return message.channel.sendMessage("Merci de mentionner l'utilisateur à expulser.").catch(console.error);
+            return message.channel.sendMessage(":x:Merci de mentionner l'utilisateur à expulser.").catch(console.error);
         }
         let kickMember = message.guild.member(message.mentions.users.first());
         if(!kickMember) {
-            return message.channel.sendMessage("Cet utilisateur est introuvable ou impossible à expulser.")
+            return message.channel.sendMessage(":x: Cet utilisateur est introuvable ou impossible à expulser.")
         }
         if(!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
-            return message.channel.sendMessage("Je n'ai pas les permissions de kick.").catch(console.error);
+            return message.channel.sendMessage(":x: Je n'ai pas les permissions de kick.").catch(console.error);
         }
         kickMember.kick().then(member => {
             message.reply(`${member.user.username} a été expulsé avec succès.`).catch(console.error);
@@ -382,13 +382,13 @@ bot.on('message', message => {
     if (message.content.startsWith(prefix + "ban")) {
         let modRole = message.guild.roles.find("name", "PermMod");
         if(!message.member.roles.has(modRole.id)) {
-            return message.channel.sendMessage("Tu n'as pas la permission de faire cette commande.").catch(console.error);
+            return message.channel.sendMessage(":x: Tu n'as pas la permission de faire cette commande.").catch(console.error);
         }
         const member = message.mentions.members.first();
-        if (!member) return message.channel.sendMessage("Merci de mentionner l'utilisateur à bannir.");
+        if (!member) return message.channel.sendMessage(":x: Merci de mentionner l'utilisateur à bannir.");
         member.ban().then(member => {
             message.channel.sendMessage(`**${member.user.username}** a été banni avec succès.`).catch(console.error);
-            message.guild.channels.find("name", "sanctions-galaxy").send(`*${member.user.username}* a été banni du discord par **${message.author.username}**`)
+            message.guild.channels.find("name", "sanctions-galaxy").send(`**${member.user.username}** a été banni du discord par **${message.author.username}**`)
         }).catch(console.error)
 }});
 
