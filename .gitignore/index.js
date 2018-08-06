@@ -85,6 +85,7 @@ bot.on('message', message => {
 
     if (message.content === prefix + "si"){
         var siembed = new Discord.RichEmbed()
+        let online = message.guild.members.filter(member => member.user.presence.status !== 'offline')
         .setTitle("**Informations du serveur**")
         .addField("**Nom du discord :**", message.guild.name)
         .addField("**Créé le :**", message.guild.createdAt)
@@ -106,6 +107,7 @@ bot.on('message', message => {
 
     if(message.content === prefix + "serverinfo") {
       var serverinfo = new Discord.RichEmbed()
+      let online = message.guild.members.filter(member => member.user.presence.status !== 'offline')
       .setTitle("**Informations du serveur**")
       .addField("**Nom du discord :**", message.guild.name)
       .addField("**Créé le :**", message.guild.createdAt)
