@@ -25,7 +25,7 @@ bot.on('message', message => {
         .addField(":rotating_light:  Administration", "\n`g!kick (Avoir role : PermMod)` | `g!ban (Avoir role : PermMod)`")
         .addField(":pushpin: Utile", "\n`g!stats` | `g!serverinfo (ou si)` | `g!invite` | `g!vcs (text)`")
         .addField(":balloon: Fun", "\n`g!roll` | `g!8ball` | `g!avatar` | `g!say (text)` | `g!flip` | `g!chat`")
-        .addField("🤝 **Support** 🤝", "\n`g!discorddd`")
+        .addField("🤝 **Support** 🤝", "\n`g!discord`")
         .setFooter("Voila pour les commandes du bot !")
         message.author.sendEmbed(help_embed);
         console.log("Commande Help demandée !");
