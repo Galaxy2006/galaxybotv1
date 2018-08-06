@@ -1,0 +1,23 @@
+{
+  "name": "galaxybot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Galaxy",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "lowdb": "^1.0.0",
+    "opusscript": "0.0.6",
+    "random-animal": "^1.0.7",
+    "random-puppy": "^1.1.0",
+    "random.dog": "^1.0.7",
+    "simple-youtube-api": "^5.0.2",
+    "superagent": "^3.8.3",
+    "ytdl-core": "^0.20.4"
+  }
+}
