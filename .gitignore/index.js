@@ -24,7 +24,7 @@ bot.on('message', message => {
         .setDescription(":question: Faites `g!hhelp` pour avoir la page d'aide dans le channel ! :question:")
         .addField(":rotating_light:  Administration", "\n`g!kick (Avoir role : PermMod)` | `g!ban (Avoir role : PermMod)`")
         .addField(":pushpin: Utile", "\n`g!stats` | `g!serverinfo (ou si)` | `g!invite` | `g!vcs (text)`")
-        .addField(":balloon: Fun", "\n`g!roll` | `g!8ball` | `g!avatar` | `g!say (text)` | `g!flip` | `g!chat`")
+        .addField(":balloon: Fun", "\n`g!roll` | `g!8ball` | `g!avatar` | `g!say (text)` | `g!flip` | `g!chat` | `g!chien`")
         .addField("🤝 **Support** 🤝", "\n`g!discord`")
         .setFooter("Voila pour les commandes du bot !")
         message.author.sendEmbed(help_embed);
@@ -405,3 +405,18 @@ bot.on("message", async (message) => {
     }
 
 });
+
+bot.on("message", async (message) => {
+    
+    if(message.content === prefix + "chien") {
+        const { body } = await superagent
+        .get('https://dog.ceo/api/breeds/image/random');
+        const dogembed = new Discord.RichEmbed()
+        .setColor(0x954D23)
+        .setTitle("Woof :dog:")
+        .setImage(body.message)
+        message.channel.sendEmbed(dogembed)
+    
+
+}});
+  
