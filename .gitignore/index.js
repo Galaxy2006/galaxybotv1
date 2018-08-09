@@ -38,14 +38,14 @@ bot.on('message', message => {
     let args = message.content.slice(prefix.length).trim().split(' ');
     let command = args.shift().toLowerCase();
 
-    if (command === "say"){
+    if (message.content === prefix + "say"){
     let say = args.join(' ');
     message.delete();
     message.channel.send(say);
     console.log(`Commande say effectuée sur le serveur ${message.guild}`)
     }
 
-    if (command === 'avatar'){
+    if (message.content === prefix + 'avatar'){
       let user = message.mentions.users.first() || message.author;
     let AvatarEmbed = new Discord.RichEmbed()
       .setColor('RANDOM')
