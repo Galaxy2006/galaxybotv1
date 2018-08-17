@@ -149,7 +149,7 @@ bot.on('message', message => {
     .setColor("RANDOM")
     .addField("| Vcs-GalaxyBot |", message.author.username)
     .addField("| Provenant du serveur |", message.guild.name)
-    .addField("| ───────────────── ", xo03)
+    .addField("| ───────────────── |", xo03)
     .setFooter("GalaxyBot | vcs")
     .setThumbnail(message.author.avatarURL)
     .setTimestamp()
