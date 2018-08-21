@@ -359,7 +359,7 @@ bot.on('message', message => {
 
     if (message.content.startsWith(prefix + "kick")) {
         let modRole = message.guild.roles.find("name", "PermMod");
-        if(!message.member.roles.has(modRole.id)) {
+        if(!message.member.roles.has(modRole)) {
             return message.channel.sendMessage("Tu n'as pas la permission de faire cette commande.").catch(console.error);
         }
         if(message.mentions.users.size === 0) {
@@ -381,8 +381,18 @@ bot.on('message', message => {
 
     if (message.content.startsWith(prefix + "ban")) {
         let modRole = message.guild.roles.find("name", "PermMod");
-        if(!message.member.roles.has(modRole.id)) {
-            return message.channel.sendMessage(":x: Tu n'as pas la permission de faire cette commande.").catch(console.error);
+        if(!message.member.roles.has(modRole)) {
+            return message.channel.sendMessage(":x: Tu n'as pas la permission de faire cette commande. (Il te faut le rôle : PermMod)").catch(console.error);
+        }
+        if(message.mentions.users.size === 0) {
+            return message.channel.sendMessage(":x:Merci de mentionner l'utilisateur à bannir.").catch(console.error);
+        }
+        let BanMember = message.guild.member(message.mentions.users.first());
+        if(!BanMember) {
+            return message.channel.sendMessage(":x: Cet utilisateur est introuvable ou impossible à bannir.")
+        }
+        if(!message.guild.member(bot.user).hasPermission("BAN_MEMBERS")) {
+            return message.channel.sendMessage(":x: Je n'ai pas les permissions de bannir.").catch(console.error);
         }
         const member = message.mentions.members.first();
         if (!member) return message.channel.sendMessage(":x: Merci de mentionner l'utilisateur à bannir.");
@@ -391,6 +401,7 @@ bot.on('message', message => {
             message.guild.channels.find("name", "sanctions-galaxy").send(`**${member.user.username}** a été banni du discord par **${message.author.username}**`)
         }).catch(console.error)
 }});
+
 
 bot.on("message", async (message) => {
     if (message.content === prefix + "chat") {
