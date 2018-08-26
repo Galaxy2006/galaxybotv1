@@ -140,25 +140,7 @@ bot.on('message', message => {
         message.author.sendEmbed(discordembed)
 
     }
-
-    if(message.content.startsWith(prefix + "vcs")) {
-       message.delete()
-      var xo03 = message.content.split(" ").slice(1).join(" ")
-    var xo02 = message.guild.channels.find('name', 'vcs-galaxy')
-    if(message.channel.name == "vcs-galaxy") {
-    var embedvcs = new Discord.RichEmbed()
-    .setColor("RANDOM")
-    .addField("| Vcs-GalaxyBot |", message.author.username)
-    .addField("| Provenant du serveur |", message.guild.name)
-    .addField("| ───────────────── |", xo03)
-    .setFooter("GalaxyBot | vcs")
-    .setThumbnail(message.author.avatarURL)
-    .setTimestamp()
-    return bot.channels.findAll('name', 'vcs-galaxy').map(a=>a.sendEmbed(embedvcs))
-    }
-    return message.channel.send("```Markdown\n#Veuillez écrire dans le channel vcs-galaxy\n```");
-    }
-
+    
     if (message.content === prefix + "invite") {
         var invite_embed = new Discord.RichEmbed()
         .setColor("RANDOM")
