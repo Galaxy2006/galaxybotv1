@@ -12,6 +12,7 @@ bot.on('ready' , () => {
 bot.login(process.env.TOKEN);
 
 bot.on('message', message => {
+    if(message.author.bot) return;
     if (message.content === "ping"){
         message.channel.sendMessage(`pong !`);
         console.log('ping pong');
@@ -241,6 +242,7 @@ randnum = Math.floor(Math.random() * (max - min +1) + min)}});
 
 
 bot.on("message", function(message) {
+    if(message.author.bot) return;
     if (message.author.equals(bot.user)) return;
 
     if (!message.content.startsWith(prefix)) return;
@@ -295,6 +297,7 @@ bot.on("message", function(message) {
 }});
 
 bot.on('message', message => {
+    if(message.author.bot) return;
     if (message.content === prefix + "flip") {
         random();
     
@@ -318,6 +321,7 @@ max = Math.floor(2)
 randnum = Math.floor(Math.random() * (max - min +1) + min)}});
 
 bot.on('message', message => {
+    if(message.author.bot) return;
     if(message.content.startsWith(prefix + 'report')){
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
@@ -354,6 +358,7 @@ bot.on('message', message => {
 }});
 
 bot.on('message', message => {
+    if(message.author.bot) return;
     let command = message.content.split(" ")[0];
     const args = message.content.slice(prefix.length).split(/ +/);
 
@@ -404,6 +409,7 @@ bot.on('message', message => {
 
 
 bot.on("message", async (message) => {
+    if(message.author.bot) return;
     if (message.content === prefix + "chat") {
         const { body } = await superagent
         .get('aws.random.cat/meow')
@@ -418,7 +424,7 @@ bot.on("message", async (message) => {
 });
 
 bot.on("message", async (message) => {
-    
+    if(message.author.bot) return;
     if(message.content === prefix + "chien") {
         const { body } = await superagent
         .get('https://dog.ceo/api/breeds/image/random');
