@@ -23,7 +23,7 @@ bot.on('message', message => {
         .setColor('RANDOM')
         .setTitle("🌌 GalaxyBot 🌌")
         .setDescription(":question: Faites `g!hhelp` pour avoir la page d'aide dans le channel ! :question:")
-        .addField(":rotating_light:  **Administration**", "\n`g!kick (Avoir role : PermMod)` | `g!ban (Avoir role : PermMod)`")
+        .addField(":rotating_light:  **Administration**", "**__SOON__**")
         .addField(":pushpin: **Utile**", "\n`g!stats` | `g!serverinfo (ou si)` | `g!invite` | `g!report (personne) (raison)`")
         .addField(":balloon: **Fun**", "\n`g!roll` | `g!8ball` | `g!avatar` | `g!say (text)` | `g!flip` | `g!chat` | `g!chien`")
         .addField("🤝 **Support** 🤝", "\n`g!discord`")
@@ -338,57 +338,6 @@ bot.on('message', message => {
       return;
 
 }});
-
-bot.on('message', message => {
-    if(message.author.bot) return;
-    let command = message.content.split(" ")[0];
-    const args = message.content.slice(prefix.length).split(/ +/);
-
-    if (message.content.startsWith(prefix + "kick")) {
-        let modRole = message.guild.roles.find("name", "PermMod");
-        if(!message.member.roles.has(modRole)) {
-            return message.channel.sendMessage("Tu n'as pas la permission de faire cette commande.").catch(console.error);
-        }
-        if(message.mentions.users.size === 0) {
-            return message.channel.sendMessage(":x:Merci de mentionner l'utilisateur à expulser.").catch(console.error);
-        }
-        let kickMember = message.guild.member(message.mentions.users.first());
-        if(!kickMember) {
-            return message.channel.sendMessage(":x: Cet utilisateur est introuvable ou impossible à expulser.")
-        }
-        if(!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
-            return message.channel.sendMessage(":x: Je n'ai pas les permissions de kick.").catch(console.error);
-        }
-        kickMember.kick().then(member => {
-            message.reply(`${member.user.username} a été expulsé avec succès.`).catch(console.error);
-            message.guild.channels.find("name", "sanctions-galaxy").send(`**${member.user.username}** a été expulsé du discord par **${message.author.username}**`)
-        }).catch(console.error)
-    
-    }
-
-    if (message.content.startsWith(prefix + "ban")) {
-        let modRole = message.guild.roles.find("name", "PermMod");
-        if(!message.member.roles.has(modRole)) {
-            return message.channel.sendMessage(":x: Tu n'as pas la permission de faire cette commande. (Il te faut le rôle : PermMod)").catch(console.error);
-        }
-        if(message.mentions.users.size === 0) {
-            return message.channel.sendMessage(":x:Merci de mentionner l'utilisateur à bannir.").catch(console.error);
-        }
-        let BanMember = message.guild.member(message.mentions.users.first());
-        if(!BanMember) {
-            return message.channel.sendMessage(":x: Cet utilisateur est introuvable ou impossible à bannir.")
-        }
-        if(!message.guild.member(bot.user).hasPermission("BAN_MEMBERS")) {
-            return message.channel.sendMessage(":x: Je n'ai pas les permissions de bannir.").catch(console.error);
-        }
-        const member = message.mentions.members.first();
-        if (!member) return message.channel.sendMessage(":x: Merci de mentionner l'utilisateur à bannir.");
-        member.ban().then(member => {
-            message.channel.sendMessage(`**${member.user.username}** a été banni avec succès.`).catch(console.error);
-            message.guild.channels.find("name", "sanctions-galaxy").send(`**${member.user.username}** a été banni du discord par **${message.author.username}**`)
-        }).catch(console.error)
-}});
-
 
 bot.on("message", async (message) => {
     if(message.author.bot) return;
