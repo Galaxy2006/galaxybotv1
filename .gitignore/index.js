@@ -61,7 +61,7 @@ bot.on('message', message => {
             .setColor('RANDOM')
             .setTitle("🌌 GalaxyBot 🌌")
             .setDescription(":question: Faites `g!help` pour avoir la page d'aide en MP ! :question:")
-            .addField(":rotating_light:  **Administration**", "\n`g!kick (Avoir role : PermMod)` | `g!ban (Avoir role : PermMod)`")
+            .addField(":rotating_light:  **Administration**", "/**__SOON__**")
             .addField(":pushpin: **Utile**", "\n`g!stats` | `g!serverinfo (ou si)` | `g!invite` | `g!report (personne) (raison)`")
             .addField(":balloon: **Fun**", "\n`g!roll` | `g!8ball` | `g!avatar` | `g!say` | `g!chat` | `g!chien`")
             .addField("🤝 **Support** 🤝", "\n`g!discord`")
